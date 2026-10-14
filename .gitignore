@@ -1,0 +1,6 @@
+CA/build/*
+.vscode/*
+CMakeLists.txt
+Makefile
+.DS_Store
+CA/.cache/
