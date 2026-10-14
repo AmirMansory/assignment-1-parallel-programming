@@ -64,7 +64,7 @@ void init_renderer(int width, int height)
     }
 
     g_particleTex = SDL_CreateTexture(g_renderer,
-        SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING,
+        SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING,
         width, height);
     if (!g_particleTex) {
         fprintf(stderr, "SDL_CreateTexture: %s\n", SDL_GetError()); exit(1);
