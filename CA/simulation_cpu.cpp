@@ -69,10 +69,28 @@ void init_particles(Particle* p, int count,
 
 /// Process one particle's N-body forces (inner loop over all j).
 /// Called by every backend so physics is identical.
+
 static inline void nbody_forces(Particle* p, int count, float dt, int i)
 {
-    // this function must change the velocity of particle p[i] based on the gravitational pull from all other particles p[j].
+    float ax = 0.0f;
+    float ay = 0.0f;
+    float xi = p[i].x;
+    float yi = p[i].y;
 
+    for (int j = 0; j < count; ++j) {
+        if (i == j) continue; 
+        float dx = p[j].x - xi;
+        float dy = p[j].y - yi;
+        float dist_sq = (dx * dx) + (dy * dy) + SOFTENING;
+        float inv_dist = 1.0f / sqrtf(dist_sq);
+        float inv_dist3 = inv_dist * inv_dist * inv_dist;
+        float F = G_CONST * p[j].mass * inv_dist3;
+        ax += dx * F;
+        ay += dy * F;
+    }
+
+    p[i].vx += ax * dt;
+    p[i].vy += ay * dt;
 }
 
 /// Apply gravity, drag, position, bounds, lifetime, colour to one particle.
