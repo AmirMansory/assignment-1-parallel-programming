@@ -1,0 +1,26 @@
+===== PROJECT STRUCTURE =====
+Folder PATH listing for volume New Volume
+Volume serial number is FC27-786C
+D:.
+|   CMakeLists.txt
+|   main.cpp
+|   Makefile
+|   project_summary_final.txt
+|   readme.md
+|   renderer.cpp
+|   renderer.h
+|   simulation.h
+|   simulation_cpu.cpp
+|   simulation_cuda_stub.cpp
+|   
+\---fonts
+
+===== JAVA FILES =====
+
+===== JAVA PACKAGES =====
+
+===== CONTROLLERS (Spring) =====
+
+===== SERVICES =====
+
+===== REPOSITORIES =====
